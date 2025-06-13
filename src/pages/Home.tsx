@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowDown, Play, Building2, TrendingUp, Users, Globe, Music, Home as HomeIcon, Sparkles, Zap, Terminal } from 'lucide-react';
 
-const Home: React.FC = () => {
+interface HomeProps {
+  onPageChange?: (page: string) => void;
+}
+
+const Home: React.FC<HomeProps> = ({ onPageChange }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
 
@@ -39,6 +43,18 @@ const Home: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleContactClick = () => {
+    if (onPageChange) {
+      onPageChange('contact');
+    }
+  };
+
+  const handleServicesClick = () => {
+    if (onPageChange) {
+      onPageChange('services');
+    }
+  };
 
   return (
     <div className="overflow-hidden">
@@ -99,7 +115,10 @@ const Home: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-delay-5">
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:shadow-2xl transition-all duration-500 transform hover:scale-110 overflow-hidden morph-button cyber-button neon-glow">
+              <button 
+                onClick={handleContactClick}
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:shadow-2xl transform hover:scale-110 transition-all duration-500 overflow-hidden morph-button cyber-button neon-glow"
+              >
                 <span className="relative z-10 flex items-center space-x-3">
                   <span>Consultation Gratuite</span>
                   <ArrowDown className="w-5 h-5 group-hover:translate-y-1 group-hover:animate-bounce transition-all duration-300" />
@@ -108,7 +127,10 @@ const Home: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </button>
               
-              <button className="group flex items-center space-x-3 px-8 py-4 border-2 border-gray-600 rounded-full hover:border-blue-500 hover:bg-gray-800/50 transition-all duration-500 hover:shadow-lg transform hover:scale-105 glass-effect cyber-button">
+              <button 
+                onClick={handleServicesClick}
+                className="group flex items-center space-x-3 px-8 py-4 border-2 border-gray-600 rounded-full hover:border-blue-500 hover:bg-gray-800/50 transition-all duration-500 hover:shadow-lg transform hover:scale-105 glass-effect cyber-button"
+              >
                 <Play className="w-5 h-5 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300" />
                 <span className="group-hover:text-blue-400 transition-colors duration-300 text-gray-300">Découvrir Nos Secteurs</span>
               </button>
@@ -325,13 +347,19 @@ const Home: React.FC = () => {
             multi-sectorielle pour développer leur activité.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-scale" style={{ animationDelay: '0.4s' }}>
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:bg-gray-100 transition-all duration-500 transform hover:scale-110 font-semibold overflow-hidden morph-button shadow-2xl cyber-button neon-glow">
+            <button 
+              onClick={handleContactClick}
+              className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:bg-gray-100 transition-all duration-500 transform hover:scale-110 font-semibold overflow-hidden morph-button shadow-2xl cyber-button neon-glow"
+            >
               <span className="relative z-10 flex items-center space-x-2">
                 <span>Consultation Stratégique Gratuite</span>
                 <Sparkles className="w-5 h-5 group-hover:animate-spin" />
               </span>
             </button>
-            <button className="group px-8 py-4 border-2 border-gray-600 text-gray-300 rounded-full hover:bg-gray-800/50 hover:text-blue-400 hover:border-blue-500 transition-all duration-500 transform hover:scale-110 glass-effect cyber-button">
+            <button 
+              onClick={() => onPageChange && onPageChange('about')}
+              className="group px-8 py-4 border-2 border-gray-600 text-gray-300 rounded-full hover:bg-gray-800/50 hover:text-blue-400 hover:border-blue-500 transition-all duration-500 transform hover:scale-110 glass-effect cyber-button"
+            >
               <span className="flex items-center space-x-2">
                 <span>Découvrir Nos Réussites</span>
                 <ArrowDown className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

@@ -36,8 +36,6 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => {
     { name: 'Services', id: 'services' },
     { name: 'Solutions', id: 'solutions' },
     { name: 'Opportunités', id: 'opportunities' },
-    { name: 'Portfolio', id: 'portfolio' },
-    { name: 'Blog', id: 'blog' },
     { name: 'Contact', id: 'contact' },
   ];
 
