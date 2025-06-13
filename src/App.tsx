@@ -43,9 +43,9 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'about':
-        return <About />;
+        return <About onPageChange={handlePageChange} />;
       case 'services':
-        return <Services />;
+        return <Services onPageChange={handlePageChange} />;
       case 'solutions':
         return <Solutions />;
       case 'opportunities':
