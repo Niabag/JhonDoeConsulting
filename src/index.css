@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-slide-up-delay-1 {
+    animation: slideUp 0.8s ease-out 0.1s both;
+  }
+  
+  .animate-slide-up-delay-2 {
+    animation: slideUp 0.8s ease-out 0.3s both;
+  }
+  
+  .animate-slide-up-delay-3 {
+    animation: slideUp 0.8s ease-out 0.5s both;
+  }
+  
+  .animate-fade-in-delay-4 {
+    animation: fadeIn 0.8s ease-out 0.7s both;
+  }
+  
+  .animate-fade-in-delay-5 {
+    animation: fadeIn 0.8s ease-out 0.9s both;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+  
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .fade-in-up.animate-fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out both;
+  }
+  
+  .animate-float-1 {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-2 {
+    animation: float 8s ease-in-out infinite reverse;
+  }
+  
+  .animate-float-3 {
+    animation: float 7s ease-in-out infinite 2s;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #10B981;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}
+
+/* Focus styles */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+select,
+textarea {
+  transition: all 0.3s ease;
+}
+
+/* Gradient text utilities */
+.gradient-text {
+  background: linear-gradient(135deg, #10B981, #3B82F6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
