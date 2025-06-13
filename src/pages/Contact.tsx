@@ -27,13 +27,13 @@ const Contact: React.FC = () => {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-8">
+          <h1 className="text-5xl md:text-6xl font-bold mb-8 text-white">
             Contactez
-            <span className="block text-blue-600">John Doe Consulting</span>
+            <span className="block text-blue-400 neon-text">John Doe Consulting</span>
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
             Prêt à développer votre business multi-secteurs ? Contactez-moi pour une consultation 
             stratégique gratuite et découvrez les opportunités qui vous attendent.
           </p>
@@ -80,16 +80,16 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-24">
+      <section className="py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold mb-8">Parlons de Votre Projet</h2>
+              <h2 className="text-3xl font-bold mb-8 text-white">Parlons de Votre Projet</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                       Nom complet *
                     </label>
                     <input
@@ -99,11 +99,12 @@ const Contact: React.FC = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-white placeholder-gray-400"
+                      placeholder="Votre nom complet"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
                       Téléphone *
                     </label>
                     <input
@@ -113,14 +114,15 @@ const Contact: React.FC = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-white placeholder-gray-400"
+                      placeholder="Votre numéro de téléphone"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                       Email *
                     </label>
                     <input
@@ -130,11 +132,12 @@ const Contact: React.FC = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-white placeholder-gray-400"
+                      placeholder="votre@email.com"
                     />
                   </div>
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
                       Entreprise
                     </label>
                     <input
@@ -143,14 +146,15 @@ const Contact: React.FC = () => {
                       name="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-white placeholder-gray-400"
+                      placeholder="Nom de votre entreprise"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="sector" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="sector" className="block text-sm font-medium text-gray-300 mb-2">
                       Secteur d'activité
                     </label>
                     <select
@@ -158,19 +162,19 @@ const Contact: React.FC = () => {
                       name="sector"
                       value={formData.sector}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-white"
                     >
-                      <option value="">Sélectionnez votre secteur</option>
-                      <option value="btp">BTP & Construction</option>
-                      <option value="immobilier">Immobilier</option>
-                      <option value="digital">Digital & Tech</option>
-                      <option value="musique">Industrie Musicale</option>
-                      <option value="marketing">Marketing</option>
-                      <option value="autre">Autre</option>
+                      <option value="" className="text-gray-400">Sélectionnez votre secteur</option>
+                      <option value="btp" className="text-white">BTP & Construction</option>
+                      <option value="immobilier" className="text-white">Immobilier</option>
+                      <option value="digital" className="text-white">Digital & Tech</option>
+                      <option value="musique" className="text-white">Industrie Musicale</option>
+                      <option value="marketing" className="text-white">Marketing</option>
+                      <option value="autre" className="text-white">Autre</option>
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
                       Sujet
                     </label>
                     <select
@@ -178,21 +182,21 @@ const Contact: React.FC = () => {
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-white"
                     >
-                      <option value="">Sélectionnez un sujet</option>
-                      <option value="apport-affaires">Apport d'affaires</option>
-                      <option value="partenariat">Opportunité de partenariat</option>
-                      <option value="digital">Projet digital</option>
-                      <option value="conseil">Conseil stratégique</option>
-                      <option value="formation">Formation équipe</option>
-                      <option value="autre">Autre</option>
+                      <option value="" className="text-gray-400">Sélectionnez un sujet</option>
+                      <option value="apport-affaires" className="text-white">Apport d'affaires</option>
+                      <option value="partenariat" className="text-white">Opportunité de partenariat</option>
+                      <option value="digital" className="text-white">Projet digital</option>
+                      <option value="conseil" className="text-white">Conseil stratégique</option>
+                      <option value="formation" className="text-white">Formation équipe</option>
+                      <option value="autre" className="text-white">Autre</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                     Votre message *
                   </label>
                   <textarea
@@ -202,14 +206,14 @@ const Contact: React.FC = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 resize-none text-white placeholder-gray-400"
                     placeholder="Décrivez votre projet, vos besoins ou vos questions..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="group w-full md:w-auto px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+                  className="group w-full md:w-auto px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 neon-glow"
                 >
                   <span>Envoyer le Message</span>
                   <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -219,72 +223,72 @@ const Contact: React.FC = () => {
 
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold mb-8">Mes Coordonnées</h2>
+              <h2 className="text-3xl font-bold mb-8 text-white">Mes Coordonnées</h2>
               <div className="space-y-8">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 neon-glow">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Téléphone</h3>
-                    <p className="text-gray-600 mb-1">07 80 39 28 53</p>
-                    <p className="text-gray-600">Disponible 6j/7 de 8h à 20h</p>
+                    <h3 className="text-lg font-semibold mb-2 text-white">Téléphone</h3>
+                    <p className="text-gray-300 mb-1">07 80 39 28 53</p>
+                    <p className="text-gray-400">Disponible 6j/7 de 8h à 20h</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 neon-glow">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Email</h3>
-                    <p className="text-gray-600 mb-1">johndoeconsulting@proton.me</p>
-                    <p className="text-gray-600">Réponse sous 2h en moyenne</p>
+                    <h3 className="text-lg font-semibold mb-2 text-white">Email</h3>
+                    <p className="text-gray-300 mb-1">johndoeconsulting@proton.me</p>
+                    <p className="text-gray-400">Réponse sous 2h en moyenne</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 neon-glow">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Zone d'intervention</h3>
-                    <p className="text-gray-600 mb-1">France entière</p>
-                    <p className="text-gray-600">Déplacements possibles</p>
+                    <h3 className="text-lg font-semibold mb-2 text-white">Zone d'intervention</h3>
+                    <p className="text-gray-300 mb-1">France entière</p>
+                    <p className="text-gray-400">Déplacements possibles</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 neon-glow">
                     <Clock className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Disponibilités</h3>
-                    <p className="text-gray-600 mb-1">Lundi - Vendredi : 8h - 20h</p>
-                    <p className="text-gray-600">Samedi : 11h - 18h</p>
+                    <h3 className="text-lg font-semibold mb-2 text-white">Disponibilités</h3>
+                    <p className="text-gray-300 mb-1">Lundi - Vendredi : 8h - 20h</p>
+                    <p className="text-gray-400">Samedi : 11h - 18h</p>
                   </div>
                 </div>
               </div>
 
               {/* Engagement */}
-              <div className="mt-12 p-6 bg-blue-50 rounded-2xl">
-                <h3 className="text-xl font-bold mb-4 text-blue-800">Mon Engagement</h3>
+              <div className="mt-12 p-6 bg-blue-900/30 rounded-2xl border border-blue-500/30">
+                <h3 className="text-xl font-bold mb-4 text-blue-300">Mon Engagement</h3>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                    <span className="text-blue-700">Consultation gratuite et sans engagement</span>
+                    <div className="w-2 h-2 bg-blue-500 rounded-full neon-glow" />
+                    <span className="text-blue-200">Consultation gratuite et sans engagement</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                    <span className="text-blue-700">Réponse garantie sous 24h</span>
+                    <div className="w-2 h-2 bg-blue-500 rounded-full neon-glow" />
+                    <span className="text-blue-200">Réponse garantie sous 24h</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                    <span className="text-blue-700">Accompagnement personnalisé</span>
+                    <div className="w-2 h-2 bg-blue-500 rounded-full neon-glow" />
+                    <span className="text-blue-200">Accompagnement personnalisé</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                    <span className="text-blue-700">Transparence totale sur les tarifs</span>
+                    <div className="w-2 h-2 bg-blue-500 rounded-full neon-glow" />
+                    <span className="text-blue-200">Transparence totale sur les tarifs</span>
                   </div>
                 </div>
               </div>
@@ -294,11 +298,11 @@ const Contact: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-800">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Questions Fréquentes</h2>
-            <p className="text-xl text-gray-600">
+            <h2 className="text-4xl font-bold mb-6 text-white neon-text">Questions Fréquentes</h2>
+            <p className="text-xl text-gray-400">
               Les réponses aux questions les plus courantes sur nos services
             </p>
           </div>
@@ -322,9 +326,9 @@ const Contact: React.FC = () => {
                 answer: 'Contactez-nous pour un entretien. Nous évaluons votre profil et vous proposons le type de partenariat le plus adapté à vos objectifs.'
               }
             ].map((faq, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-lg font-bold mb-3 text-blue-600">{faq.question}</h3>
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+              <div key={index} className="dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-700">
+                <h3 className="text-lg font-bold mb-3 text-blue-400">{faq.question}</h3>
+                <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
