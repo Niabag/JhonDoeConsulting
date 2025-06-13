@@ -53,7 +53,7 @@ function App() {
       case 'contact':
         return <Contact />;
       default:
-        return <Home />;
+        return <Home onPageChange={handlePageChange} />;
     }
   };
 

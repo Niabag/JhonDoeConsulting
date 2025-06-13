@@ -44,6 +44,7 @@ const Home: React.FC<HomeProps> = ({ onPageChange }) => {
     };
   }, []);
 
+  // Fonctions de navigation
   const handleContactClick = () => {
     if (onPageChange) {
       onPageChange('contact');
@@ -53,6 +54,18 @@ const Home: React.FC<HomeProps> = ({ onPageChange }) => {
   const handleServicesClick = () => {
     if (onPageChange) {
       onPageChange('services');
+    }
+  };
+
+  const handleAboutClick = () => {
+    if (onPageChange) {
+      onPageChange('about');
+    }
+  };
+
+  const handleConsultationClick = () => {
+    if (onPageChange) {
+      onPageChange('contact');
     }
   };
 
@@ -132,7 +145,7 @@ const Home: React.FC<HomeProps> = ({ onPageChange }) => {
                 className="group flex items-center space-x-3 px-8 py-4 border-2 border-gray-600 rounded-full hover:border-blue-500 hover:bg-gray-800/50 transition-all duration-500 hover:shadow-lg transform hover:scale-105 glass-effect cyber-button"
               >
                 <Play className="w-5 h-5 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300" />
-                <span className="group-hover:text-blue-400 transition-colors duration-300 text-gray-300">Découvrir Nos Secteurs</span>
+                <span className="group-hover:text-blue-400 transition-colors duration-300 text-gray-300">Découvrir Nos Services</span>
               </button>
             </div>
           </div>
@@ -348,7 +361,7 @@ const Home: React.FC<HomeProps> = ({ onPageChange }) => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-scale" style={{ animationDelay: '0.4s' }}>
             <button 
-              onClick={handleContactClick}
+              onClick={handleConsultationClick}
               className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:bg-gray-100 transition-all duration-500 transform hover:scale-110 font-semibold overflow-hidden morph-button shadow-2xl cyber-button neon-glow"
             >
               <span className="relative z-10 flex items-center space-x-2">
@@ -357,7 +370,7 @@ const Home: React.FC<HomeProps> = ({ onPageChange }) => {
               </span>
             </button>
             <button 
-              onClick={() => onPageChange && onPageChange('about')}
+              onClick={handleAboutClick}
               className="group px-8 py-4 border-2 border-gray-600 text-gray-300 rounded-full hover:bg-gray-800/50 hover:text-blue-400 hover:border-blue-500 transition-all duration-500 transform hover:scale-110 glass-effect cyber-button"
             >
               <span className="flex items-center space-x-2">
