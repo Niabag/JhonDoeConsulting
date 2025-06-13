@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
 import { Building2, Home, Globe, Music, TrendingUp, Users, Search, Lightbulb, Briefcase, DollarSign, PiggyBank } from 'lucide-react';
 
-const Solutions: React.FC = () => {
+interface SolutionsProps {
+  onPageChange?: (page: string) => void;
+}
+
+const Solutions: React.FC<SolutionsProps> = ({ onPageChange }) => {
   const [activeTab, setActiveTab] = useState('btp');
+
+  // Fonction de navigation vers Contact
+  const handleContactClick = () => {
+    if (onPageChange) {
+      onPageChange('contact');
+    }
+  };
 
   const solutions = {
     btp: {
@@ -209,13 +220,13 @@ const Solutions: React.FC = () => {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-8">
+          <h1 className="text-5xl md:text-6xl font-bold mb-8 text-white">
             Solutions
-            <span className="block text-blue-600">Multi-Secteurs</span>
+            <span className="block text-blue-400 neon-text">Multi-Secteurs</span>
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
             Des solutions sur-mesure pour chaque secteur d'activité. 
             Découvrez nos offres spécialisées pour développer votre business.
           </p>
@@ -223,14 +234,17 @@ const Solutions: React.FC = () => {
       </section>
 
       {/* Quick Contact CTA */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-blue-900 to-purple-900 text-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-6 md:mb-0">
-              <h2 className="text-3xl font-bold mb-2">Consultation Stratégique Gratuite</h2>
-              <p className="text-blue-100">Analysons ensemble vos opportunités de développement</p>
+              <h2 className="text-3xl font-bold mb-2 neon-text">Consultation Stratégique Gratuite</h2>
+              <p className="text-blue-200">Analysons ensemble vos opportunités de développement</p>
             </div>
-            <button className="flex items-center space-x-3 px-8 py-4 bg-white text-blue-600 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+            <button 
+              onClick={handleContactClick}
+              className="flex items-center space-x-3 px-8 py-4 bg-white text-blue-600 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 neon-glow"
+            >
               <Users className="w-6 h-6" />
               <span className="font-semibold">Prendre Rendez-vous</span>
             </button>
@@ -239,7 +253,7 @@ const Solutions: React.FC = () => {
       </section>
 
       {/* Solutions Tabs */}
-      <section className="py-24">
+      <section className="py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-6">
           {/* Tab Navigation */}
           <div className="flex flex-wrap justify-center mb-16">
@@ -249,8 +263,8 @@ const Solutions: React.FC = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center space-x-3 px-6 py-3 m-2 rounded-full font-medium transition-all duration-300 ${
                   activeTab === tab.id
-                    ? 'bg-blue-500 text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-blue-500 text-white shadow-lg neon-glow'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700'
                 }`}
               >
                 <tab.icon className="w-5 h-5" />
@@ -262,8 +276,8 @@ const Solutions: React.FC = () => {
           {/* Active Solution Content */}
           <div className="animate-fade-in">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">{solutions[activeTab as keyof typeof solutions].title}</h2>
-              <p className="text-xl text-gray-600">{solutions[activeTab as keyof typeof solutions].subtitle}</p>
+              <h2 className="text-4xl font-bold mb-4 text-white neon-text">{solutions[activeTab as keyof typeof solutions].title}</h2>
+              <p className="text-xl text-gray-400">{solutions[activeTab as keyof typeof solutions].subtitle}</p>
             </div>
 
             {/* Grid adaptatif selon le nombre de services */}
@@ -276,23 +290,23 @@ const Solutions: React.FC = () => {
                 const CurrentTabIcon = solutions[activeTab as keyof typeof solutions].icon;
                 
                 return (
-                  <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200 group">
+                  <div key={index} className="dark-card rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-700 hover:border-blue-500 group">
                     <div className="p-8">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 neon-glow">
                         <CurrentTabIcon className="w-8 h-8 text-white" />
                       </div>
                       
-                      <h3 className="text-2xl font-bold mb-3 text-center group-hover:text-blue-600 transition-colors duration-300">
+                      <h3 className="text-2xl font-bold mb-3 text-center group-hover:text-blue-400 transition-colors duration-300 text-white">
                         {service.name}
                       </h3>
                       
-                      <p className="text-gray-600 text-center mb-6 leading-relaxed">
+                      <p className="text-gray-400 text-center mb-6 leading-relaxed">
                         {service.description}
                       </p>
                       
                       <div className="text-center mb-6">
-                        <div className="text-xl font-bold text-blue-600 mb-2">{service.price}</div>
-                        <div className="text-sm text-gray-600 bg-green-100 px-3 py-1 rounded-full inline-block">
+                        <div className="text-xl font-bold text-blue-400 mb-2">{service.price}</div>
+                        <div className="text-sm text-gray-400 bg-green-900/30 px-3 py-1 rounded-full inline-block border border-green-500/30">
                           {service.results}
                         </div>
                       </div>
@@ -300,13 +314,16 @@ const Solutions: React.FC = () => {
                       <div className="space-y-2 mb-6">
                         {service.features.map((feature, featureIndex) => (
                           <div key={featureIndex} className="flex items-center space-x-2">
-                            <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                            <span className="text-sm text-gray-600">{feature}</span>
+                            <div className="w-2 h-2 bg-blue-500 rounded-full neon-glow" />
+                            <span className="text-sm text-gray-400">{feature}</span>
                           </div>
                         ))}
                       </div>
                       
-                      <button className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                      <button 
+                        onClick={handleContactClick}
+                        className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105 neon-glow"
+                      >
                         Demander un Devis
                       </button>
                     </div>
@@ -319,11 +336,11 @@ const Solutions: React.FC = () => {
       </section>
 
       {/* Additional Services */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-800">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Services Transversaux</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-6 text-white neon-text">Services Transversaux</h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Des services complémentaires qui s'adaptent à tous les secteurs.
             </p>
           </div>
@@ -355,15 +372,15 @@ const Solutions: React.FC = () => {
                 price: 'Mission consultante'
               }
             ].map((service, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 text-center group">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div key={index} className="dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-700 text-center group">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 neon-glow">
                   <service.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                <h3 className="text-lg font-bold mb-2 group-hover:text-blue-400 transition-colors duration-300 text-white">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-3">{service.description}</p>
-                <div className="text-blue-600 font-semibold text-sm">{service.price}</div>
+                <p className="text-gray-400 text-sm mb-3">{service.description}</p>
+                <div className="text-blue-400 font-semibold text-sm">{service.price}</div>
               </div>
             ))}
           </div>
@@ -371,11 +388,11 @@ const Solutions: React.FC = () => {
       </section>
 
       {/* Success Metrics */}
-      <section className="py-24">
+      <section className="py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Nos Résultats</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-6 text-white neon-text">Nos Résultats</h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Des chiffres qui parlent de notre expertise multi-sectorielle.
             </p>
           </div>
@@ -387,9 +404,9 @@ const Solutions: React.FC = () => {
               { metric: '85%', label: 'Taux de réussite immobilier', sector: 'Immobilier' },
               { metric: '15+', label: 'Artistes mis en relation', sector: 'Musique' }
             ].map((stat, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">{stat.metric}</div>
-                <h3 className="text-lg font-semibold mb-2">{stat.label}</h3>
+              <div key={index} className="dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-700 text-center">
+                <div className="text-3xl font-bold text-blue-400 mb-2 neon-text">{stat.metric}</div>
+                <h3 className="text-lg font-semibold mb-2 text-white">{stat.label}</h3>
                 <p className="text-gray-500 text-sm">{stat.sector}</p>
               </div>
             ))}

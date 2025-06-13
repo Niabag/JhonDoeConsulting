@@ -47,7 +47,7 @@ function App() {
       case 'services':
         return <Services onPageChange={handlePageChange} />;
       case 'solutions':
-        return <Solutions />;
+        return <Solutions onPageChange={handlePageChange} />;
       case 'opportunities':
         return <Opportunities />;
       case 'contact':
