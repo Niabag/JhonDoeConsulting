@@ -36,6 +36,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => {
     { name: 'Services', id: 'services' },
     { name: 'Solutions', id: 'solutions' },
     { name: 'Opportunités', id: 'opportunities' },
+    { name: 'Portfolio', id: 'portfolio' },
+    { name: 'Blog', id: 'blog' },
     { name: 'Contact', id: 'contact' },
   ];
 
@@ -75,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex space-x-8">
+        <nav className="hidden lg:flex space-x-6">
           {navigation.map((item, index) => (
             <button
               key={item.id}

@@ -6,6 +6,8 @@ import Services from './pages/Services';
 import Solutions from './pages/Solutions';
 import Opportunities from './pages/Opportunities';
 import Contact from './pages/Contact';
+import Portfolio from './pages/Portfolio';
+import Blog from './pages/Blog';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -52,6 +54,10 @@ function App() {
         return <Opportunities />;
       case 'contact':
         return <Contact />;
+      case 'portfolio':
+        return <Portfolio />;
+      case 'blog':
+        return <Blog />;
       default:
         return <Home />;
     }
